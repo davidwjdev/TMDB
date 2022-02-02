@@ -1,0 +1,30 @@
+.top{
+    background-color: #2D0C5E;
+    display: flex;
+    justify-content: center;
+}
+.titulo{
+    font-size: 42px;
+    font-weight: bold;
+}
+.containerTop{
+    width: 800px;
+    height: 300px;
+    padding-top: 50px;
+    text-align: center;
+}
+.containerFiltros{
+    padding-top: 50px;
+}
+.botaoFiltros{
+    padding-top: 20px;
+}
+.filtros{
+    font-weight: bold;
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 5px 30px;
+    border-radius: 5px;
+    border: #000000;
+    
+}

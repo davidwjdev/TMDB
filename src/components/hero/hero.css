@@ -1,0 +1,16 @@
+.tituloSite{
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-weight: 900;
+}
+.hero{
+    background-color: #5C16C5;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+.containerHero{
+    width: 800px;
+    display: flex;
+    padding: 10px 0;
+}
