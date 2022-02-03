@@ -9,22 +9,27 @@
 }
 .containerTop{
     width: 800px;
-    height: 300px;
+    height: 350px;
     padding-top: 50px;
     text-align: center;
 }
 .containerFiltros{
     padding-top: 50px;
+    
 }
 .botaoFiltros{
     padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .filtros{
     font-weight: bold;
     background-color: #FFFFFF;
     color: #000000;
-    padding: 5px 30px;
+    padding: 5px 15px;
     border-radius: 5px;
     border: #000000;
+    margin: 5px
     
 }

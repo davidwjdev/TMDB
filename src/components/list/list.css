@@ -1,3 +1,20 @@
 .list{
     color: #000000;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+.containerList{
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.containerFilme{
+    padding: 15px;
+}
+.posterFilme{
+    width: 150px;
+    height: auto;
 }
