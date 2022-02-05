@@ -1,0 +1,20 @@
+.topDet{
+    background-color: #2D0C5E;
+    display: flex;
+    justify-content: center;
+}
+.containerTopDet{
+    width: 800px;
+    height: 350px;
+    padding-top: 50px;
+    display: flex;
+}
+.posterFilmeDet{
+    width: 270px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0.1em 0.1em #000000;
+}
+.detFilmeTexto{
+    padding: 0 50px;
+}

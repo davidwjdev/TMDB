@@ -22,6 +22,7 @@ export default function List() {
       .then((results) => {
         const result = results.data.results;
         setMovies(result);
+        console.log(result[0].id)
       });
   }, [page]);
  
@@ -36,7 +37,7 @@ export default function List() {
         {movies.map((movie) => (
           <div className="containerFilme" key={movie.id}>
             <img
-              className="posterFilme"
+              className="posterFilmeDet"
               alt="Movie"
               src={`https://image.tmdb.org/t/p/w500` + movie.poster_path}
             />
