@@ -1,0 +1,42 @@
+.elenco{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+.containerElenco{
+    color: #000000;
+
+}
+.tituloElenco{
+    padding: 20px 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+.grupoElenco{
+    width: 800px;
+    display: flex;
+    padding: 10px 0;
+    overflow-y: auto;
+}
+.fotoElenco{
+    width: 150px;
+    height: 225px;
+}
+.pessoa{
+    border-radius: 5px;
+    box-shadow: 0 0.1em 0.1em #002211 ;
+    padding: 10px;
+    margin: 5px;
+    background-color: #FFFFFF;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+}
+.nomePessoa{
+    font-weight: bold;
+    padding: 10px 0;
+}
+.personagemPessoa{
+    padding: 10px 0;
+    font-size: 12px;
+}

@@ -16,8 +16,7 @@ export default function TopDet() {
       .then((results) => {
         const result = results.data;
         setMovieId(result);
-        setGenres(result.genres.map((genre) => genre.name))
-        console.log(genres.toString());
+        setGenres(result.genres.map((genre) => genre.name));
       });
   }, []);
   return (
@@ -43,20 +42,23 @@ export default function TopDet() {
               </span>
               <span> • </span>
               <span>{genres.toString()}</span>
-              {/* <span>{movieId.genres.map((genre) => (
-                <span>{genre.name} </span>
-              ))
-              }</span>  */}
               <span> • </span>
-              <span>{
-              moment.utc(moment.duration(movieId.runtime, "minutes").asMilliseconds()).format("HH:mm:ss")
-              
-              }</span>
+              <span>
+                {moment
+                  .utc(
+                    moment.duration(movieId.runtime, "minutes").asMilliseconds()
+                  )
+                  .format("HH:mm:ss")}
+              </span>
             </div>
           </div>
           <div>
             <span>{movieId.vote_average}</span>
             <span> Avaliação dos Usuarios</span>
+          </div>
+          <div>
+            <span>Sinopse</span>
+            <span>{movieId.overview}</span>
           </div>
           <div>
             <span>Sinopse</span>

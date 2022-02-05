@@ -10,7 +10,7 @@ import "./list.css";
 export default function List() {
   const [movies, setMovies] = useState([]);
   const apiKey = "8cfb3f7b5d20b29a8bb4602b47a77292";
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(1);
   const maxPages = 100;
 
 
