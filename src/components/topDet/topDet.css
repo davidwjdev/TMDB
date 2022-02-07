@@ -1,20 +1,32 @@
-.topDet{
-    background-color: #2D0C5E;
-    display: flex;
-    justify-content: center;
+.topDet {
+  background-color: #2d0c5e;
+  display: flex;
+  justify-content: center;
 }
-.containerTopDet{
-    width: 800px;
-    height: 350px;
-    padding-top: 50px;
-    display: flex;
+.containerTopDet {
+  width: 800px;
+  height: 350px;
+  padding-top: 50px;
+  display: flex;
 }
-.posterFilmeDet{
-    width: 270px;
-    height: auto;
-    border-radius: 5px;
-    box-shadow: 0 0.1em 0.1em #000000;
+.posterFilmeDet {
+  width: 270px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 0.1em 0.1em #000000;
 }
-.detFilmeTexto{
-    padding: 0 50px;
+.detFilmeTexto {
+  padding: 0 50px;
+}
+.detTituloFilme {
+  font-size: 20px;
+  font-weight: bold;
+}
+.avaliacaoUsuarios {
+  display: flex;
+  padding: 10px 0;
+}
+.tituloAvaliacaoUsuarios{
+    padding-left:20px;
+    width: 100px;
 }

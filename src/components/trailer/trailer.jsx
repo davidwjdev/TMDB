@@ -14,7 +14,6 @@ export default function Trailer() {
       .then((results) => {
         const result = results.data.results;
         setTrailer(result[0].key);
-        console.log(result[0].key);
       });
   }, []);
 
@@ -27,9 +26,6 @@ export default function Trailer() {
           height="400"
           src={`https://www.youtube.com/embed/`+trailer}
           title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
         ></iframe>
       </div>
     </div>
