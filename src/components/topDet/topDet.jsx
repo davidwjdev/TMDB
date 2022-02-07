@@ -5,6 +5,10 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "./topDet.css";
 
+import { Link } from "react-router-dom";
+import Fab from "@mui/material/Fab";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+
 export default function TopDet(props) {
   const [movieId, setMovieId] = useState([]);
   const apiKey = "8cfb3f7b5d20b29a8bb4602b47a77292";
@@ -36,7 +40,6 @@ export default function TopDet(props) {
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${props.movieId}/credits?api_key=${apiKey}&language=pt-BR`
-        // `https://api.themoviedb.org/3/movie/634649/credits?api_key=${apiKey}&language=pt-BR`
       )
       .then((results) => {
         const result = results.data.crew;
@@ -57,6 +60,13 @@ export default function TopDet(props) {
   }, []);
   return (
     <div className="topDet">
+      <div className="botaoVoltar">
+        <Link to={`/`} className="linkHero">
+          <Fab color="secondary" aria-label="Voltar" title="Voltar">
+            <ArrowBackIosNewIcon />
+          </Fab>
+        </Link>
+      </div>
       <div className="containerTopDet">
         <div className="detFilmeFoto">
           <img

@@ -5,7 +5,7 @@
 }
 .containerTopDet {
   width: 800px;
-  height: 370px;
+  height: auto;
   padding-top: 50px;
   display: flex;
 }
@@ -15,9 +15,11 @@
   height: auto;
   border-radius: 5px;
   box-shadow: 0 0.1em 0.1em #000000;
+  position: absolute;
 }
 .detFilmeTexto {
   padding: 0 50px;
+  margin-left: 270px;
 }
 .detTituloFilme {
   font-size: 20px;
@@ -50,6 +52,7 @@
 .detContainerPessoaDepartGrupo {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: 30px;
 }
 .detPessoaDepartGrupo {
   display: grid;
@@ -59,4 +62,9 @@
 }
 .detPessoaNome {
   font-weight: bold;
+}
+.botaoVoltar{
+  position: fixed;
+  bottom: 5%;
+  left: 75%;
 }

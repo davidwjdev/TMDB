@@ -4,6 +4,7 @@ import TopDet from "../../components/topDet/topDet";
 import Trailer from "../../components/trailer/trailer";
 import Recomendacao from "../../components/recomendacao/recomendacao";
 
+
 import { useParams, useLocation } from "react-router-dom";
 
 export default function DetMovie() {
