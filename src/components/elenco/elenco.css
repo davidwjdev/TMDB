@@ -39,3 +39,13 @@
   padding: 10px 0;
   font-size: 12px;
 }
+
+@media (max-width: 799px) {
+  .grupoElenco {
+    width: 425px;
+  }
+
+  .tituloElenco{
+    padding: 0 20px;
+  }
+}

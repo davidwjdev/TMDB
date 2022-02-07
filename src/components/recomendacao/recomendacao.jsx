@@ -23,7 +23,7 @@ export default function Recomendacao(props) {
         <span className="tituloRecomendacao">Recomendações</span>
         <div className="grupoRecomendacao">
           {recomendacao.map((recomend) => (
-            <div className="filme" key={recomend.title}>
+            <div className="filme" key={recomend.id}>
               <img
                 className="fotoFilme"
                 src={`https://image.tmdb.org/t/p/w500` + recomend.poster_path}

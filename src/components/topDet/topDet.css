@@ -25,7 +25,7 @@
   font-size: 20px;
   font-weight: bold;
 }
-.avaliacaoUsuarios {
+.detAvaliacaoUsuarios {
   display: flex;
   padding: 10px 0;
 }
@@ -63,8 +63,46 @@
 .detPessoaNome {
   font-weight: bold;
 }
-.botaoVoltar{
+.botaoVoltar {
   position: fixed;
   bottom: 5%;
   left: 75%;
+}
+@media (max-width: 799px) {
+  .containerTopDet {
+    text-align: left;
+    padding: 50px 10px 10px 10px;
+    width: 425px;
+    display: flex;
+    flex-direction: column;
+  }
+  .posterFilmeDet {
+    position: inherit;
+    width: 150px;
+    height: auto;
+  }
+  .detFilmeFoto {
+    display: flex;
+    justify-content: center;
+  }
+  .detFilmeTexto {
+    padding: 50px 10px 10px 10px;
+    margin-left: 0;
+  }
+  .detIdadeDataLancGenDur {
+    display: flex;
+    flex-direction: column;
+  }
+  .separador{
+    display: none;
+  }
+  .detContainerPessoaDepartGrupo {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .botaoVoltar {
+    position: fixed;
+    bottom: 5%;
+    left: 70%;
+  }
 }

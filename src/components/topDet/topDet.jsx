@@ -83,16 +83,16 @@ export default function TopDet(props) {
             </span>
             <div className="detIdadeDataLancGenDur">
               <span>{releaseDate.certification} Anos</span>
-              <span> • </span>
+              <span className="separador"> • </span>
               <span>
                 {moment(releaseDate.release_date)
                   .locale("pt")
                   .format("DD/MM/YYYY")}
                 (BR)
               </span>
-              <span> • </span>
+              <span className="separador"> • </span>
               <span>{genres.toString()}</span>
-              <span> • </span>
+              <span className="separador"> • </span>
               <span>
                 {moment
                   .utc(
@@ -102,7 +102,7 @@ export default function TopDet(props) {
               </span>
             </div>
           </div>
-          <div className="avaliacaoUsuarios">
+          <div className="detAvaliacaoUsuarios">
             <div style={{ width: 40, height: 40 }}>
               <CircularProgressbar
                 value={(100 * movieId.vote_average) / 10}

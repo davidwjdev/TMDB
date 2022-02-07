@@ -22,8 +22,8 @@ export default function Trailer(props) {
       <div className="containerTrailer">
         <span className="tituloTrailer">Trailer</span>
         <iframe
-          width="800"
-          height="400"
+          width="420"
+          height="300"
           src={`https://www.youtube.com/embed/` + trailer}
           title="YouTube video player"
         ></iframe>
