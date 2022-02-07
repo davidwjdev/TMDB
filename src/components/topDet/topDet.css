@@ -9,6 +9,7 @@
   padding-top: 50px;
   display: flex;
 }
+
 .posterFilmeDet {
   width: 270px;
   height: auto;
@@ -26,40 +27,36 @@
   display: flex;
   padding: 10px 0;
 }
-.detTituloAvaliacaoUsuarios{
-    padding-left:20px;
-    width: 100px;
+.detTituloAvaliacaoUsuarios {
+  padding-left: 20px;
+  width: 100px;
 }
-.detIdadeDataLancGenDur{
-    padding: 5px 0;
-    font-size: 14px;
+.detIdadeDataLancGenDur {
+  padding: 5px 0;
+  font-size: 14px;
 }
-.detTituloSinopse{
-    font-size: 20px;
-    font-weight: bold;
-    padding: 5px 0;
+.detTituloSinopse {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 0;
 }
-.detSinopse{
-    display: flex;
-    flex-direction: column;
+.detSinopse {
+  display: flex;
+  flex-direction: column;
 }
-.detTextoSinopse{
-    font-size: 16px;
+.detTextoSinopse {
+  font-size: 16px;
 }
-.detContainerPessoaDepartGrupo{
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  
-}
-.detPessoaDepartGrupo{
+.detContainerPessoaDepartGrupo {
   display: grid;
-  /* flex-direction: column; */
-  
-grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.detPessoaDepartGrupo {
+  display: grid;
+  grid-auto-flow: row;
   font-size: 12px;
   padding: 10px 10px 0 0;
-  
 }
-.detPessoaNome{
+.detPessoaNome {
   font-weight: bold;
 }

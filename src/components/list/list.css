@@ -1,32 +1,41 @@
-.list{
-    color: #000000;
-    display: flex;
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
+.linkFilme,
+.linkFilme:focus,
+.linkFilme:hover,
+.linkFilme:visited,
+.linkFilme:link,
+.linkFilme:active {
+    color: inherit;
+    text-decoration: inherit; 
 }
-.containerList{
-    width: 800px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.list {
+  color: #000000;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
 }
-.containerFilme{
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    max-width: 150px;
+.containerList {
+  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.nomeFilme{
-    font-weight: bold;
+.containerFilme {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  max-width: 150px;
+}
+.nomeFilme {
+  font-weight: bold;
+}
+.posterFilme {
+  width: 150px;
+  height: auto;
+  padding-bottom: 5px;
+}
+.paginacao {
+  margin: 50px 0;
+}
 
-}
-.posterFilme{
-    width: 150px;
-    height: auto;
-    padding-bottom: 5px;
-}
-.paginacao{
-    margin: 50px 0;
-}

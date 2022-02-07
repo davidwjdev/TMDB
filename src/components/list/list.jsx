@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 
+import { Link } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
 
@@ -13,7 +14,6 @@ export default function List() {
   const [page, setPage] = useState(1);
   const maxPages = 100;
 
-
   useEffect(() => {
     axios
       .get(
@@ -22,13 +22,11 @@ export default function List() {
       .then((results) => {
         const result = results.data.results;
         setMovies(result);
-        console.log(result[0].id)
       });
   }, [page]);
- 
+
   const handleChange = (event, value) => {
     setPage(value);
-    console.log(value);
   };
 
   return (
@@ -36,15 +34,22 @@ export default function List() {
       <div className="containerList">
         {movies.map((movie) => (
           <div className="containerFilme" key={movie.id}>
-            <img
-              className="posterFilmeDet"
-              alt="Movie"
-              src={`https://image.tmdb.org/t/p/w500` + movie.poster_path}
-            />
-            <span className="nomeFilme">{movie.title}</span>
-            <span className="dataLancamentoFilme">
-              {moment(movie.release_date).locale("pt").format("DD MMM YYYY")}
-            </span>
+            <Link to={`/detalhes/${movie.id}`} className="linkFilme">
+              <img
+                className="posterFilme"
+                alt="Movie"
+                src={`https://image.tmdb.org/t/p/w500` + movie.poster_path}
+              />
+            </Link>
+            <Link to={`/detalhes/${movie.id}`} className="linkFilme">
+              <span className="nomeFilme">{movie.title}</span>
+            </Link>
+
+            <Link to={`/detalhes/${movie.id}`} className="linkFilme">
+              <span className="dataLancamentoFilme">
+                {moment(movie.release_date).locale("pt").format("DD MMM YYYY")}
+              </span>
+            </Link>
           </div>
         ))}
         <div className="paginacao">

@@ -1,3 +1,16 @@
+.linkHero,
+.linkHero:focus,
+.linkHero:hover,
+.linkHero:visited,
+.linkHero:link,
+.linkHero:active {
+    color: inherit;
+    text-decoration: inherit; 
+}
+.icon{
+    width: 45px;
+    height: 16px;
+}
 .tituloSite{
     letter-spacing: 5px;
     font-size: 20px;
@@ -5,7 +18,7 @@
 }
 .hero{
     background-color: #5C16C5;
-    height: 50px;
+    height: 60px;
     display: flex;
     justify-content: center;
 }
@@ -13,4 +26,9 @@
     width: 800px;
     display: flex;
     padding: 10px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+.botaoHome{
+    color: #FFFFFF;
 }

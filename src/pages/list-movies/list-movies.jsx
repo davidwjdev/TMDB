@@ -6,7 +6,6 @@ import Top from "../../components/top/top";
 export default function ListMovies() {
     return (
         <Fragment>
-        <Hero />
         <Top />
         <List />
         </Fragment>

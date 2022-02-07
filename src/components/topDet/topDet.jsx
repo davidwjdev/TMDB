@@ -5,7 +5,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "./topDet.css";
 
-export default function TopDet() {
+export default function TopDet(props) {
   const [movieId, setMovieId] = useState([]);
   const apiKey = "8cfb3f7b5d20b29a8bb4602b47a77292";
   const [genres, setGenres] = useState([]);
@@ -15,7 +15,7 @@ export default function TopDet() {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/634649?api_key=${apiKey}&language=pt-BR`
+        `https://api.themoviedb.org/3/movie/${props.movieId}?api_key=${apiKey}&language=pt-BR`
       )
       .then((results) => {
         const result = results.data;
@@ -24,7 +24,7 @@ export default function TopDet() {
       });
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/634649/release_dates?api_key=${apiKey}&language=pt-BR`
+        `https://api.themoviedb.org/3/movie/${props.movieId}/release_dates?api_key=${apiKey}&language=pt-BR`
       )
       .then((results) => {
         const result = results.data.results;
@@ -35,17 +35,17 @@ export default function TopDet() {
       });
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/634649/credits?api_key=${apiKey}&language=pt-BR`
-      )
+        `https://api.themoviedb.org/3/movie/${props.movieId}/credits?api_key=${apiKey}&language=pt-BR`
+        // `https://api.themoviedb.org/3/movie/634649/credits?api_key=${apiKey}&language=pt-BR`
+
+        )
       .then((results) => {
         const result = results.data.crew;
         const pessoa = [];
-        // console.log(result);
-        const res = result.filter(function (crew) {
-          // console.log(crew.department);
+        result.filter(function (crew) {
           if(crew.department === "Directing"){
-            console.log("passou aqui");
             pessoa.push({
+              id: crew.id,
               name:crew.name,
               department: crew.department,
             });
@@ -53,7 +53,6 @@ export default function TopDet() {
           }
             return pessoa;
         });   
-        console.log(pessoa);
         setCredits(pessoa);
       });
 
@@ -61,6 +60,7 @@ export default function TopDet() {
   return (
     <div className="topDet">
       <div className="containerTopDet">
+
         <div className="detFilmeFoto">
           <img
             className="posterFilmeDet"
@@ -123,7 +123,7 @@ export default function TopDet() {
           <div className="detContainerPessoaDepartGrupo">
             {
               credits.map((pessoa) => (
-              <div className="detPessoaDepartGrupo" >
+              <div className="detPessoaDepartGrupo" key={pessoa.id} >
                 <span className="detPessoaNome">{pessoa.name}</span>
                 <span className="detPessoaDepart">{pessoa.department}</span>
               </div>

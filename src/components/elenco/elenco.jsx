@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./elenco.css";
 
-export default function Elenco() {
+export default function Elenco(props) {
   const [elenco, setElenco] = useState([]);
   const apiKey = "8cfb3f7b5d20b29a8bb4602b47a77292";
 
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/634649/credits?api_key=${apiKey}&language=pt-BR`
+        `https://api.themoviedb.org/3/movie/${props.movieId}/credits?api_key=${apiKey}&language=pt-BR`
       )
       .then((results) => {
         const result = results.data.cast;
