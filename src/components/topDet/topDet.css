@@ -5,7 +5,7 @@
 }
 .containerTopDet {
   width: 800px;
-  height: 350px;
+  height: 370px;
   padding-top: 50px;
   display: flex;
 }
@@ -26,7 +26,40 @@
   display: flex;
   padding: 10px 0;
 }
-.tituloAvaliacaoUsuarios{
+.detTituloAvaliacaoUsuarios{
     padding-left:20px;
     width: 100px;
+}
+.detIdadeDataLancGenDur{
+    padding: 5px 0;
+    font-size: 14px;
+}
+.detTituloSinopse{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 0;
+}
+.detSinopse{
+    display: flex;
+    flex-direction: column;
+}
+.detTextoSinopse{
+    font-size: 16px;
+}
+.detContainerPessoaDepartGrupo{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+}
+.detPessoaDepartGrupo{
+  display: grid;
+  /* flex-direction: column; */
+  
+grid-auto-flow: row;
+  font-size: 12px;
+  padding: 10px 10px 0 0;
+  
+}
+.detPessoaNome{
+  font-weight: bold;
 }

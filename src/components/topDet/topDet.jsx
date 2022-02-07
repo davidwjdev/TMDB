@@ -4,13 +4,13 @@ import moment from "moment";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "./topDet.css";
-import { borderLeft } from "@mui/system";
 
 export default function TopDet() {
   const [movieId, setMovieId] = useState([]);
   const apiKey = "8cfb3f7b5d20b29a8bb4602b47a77292";
   const [genres, setGenres] = useState([]);
   const [releaseDate, setReleaseDate] = useState([]);
+  const [credits, setCredits] = useState([]);
 
   useEffect(() => {
     axios
@@ -27,10 +27,36 @@ export default function TopDet() {
         `https://api.themoviedb.org/3/movie/634649/release_dates?api_key=${apiKey}&language=pt-BR`
       )
       .then((results) => {
-        const result = results.data;
-        setReleaseDate(result);
-        console.log(releaseDate);
+        const result = results.data.results;
+        const res = result.filter(function (iso) {
+          return iso.iso_3166_1 === "BR";
+        });
+        setReleaseDate(res[0].release_dates[0]);
       });
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/634649/credits?api_key=${apiKey}&language=pt-BR`
+      )
+      .then((results) => {
+        const result = results.data.crew;
+        const pessoa = [];
+        // console.log(result);
+        const res = result.filter(function (crew) {
+          // console.log(crew.department);
+          if(crew.department === "Directing"){
+            console.log("passou aqui");
+            pessoa.push({
+              name:crew.name,
+              department: crew.department,
+            });
+            return pessoa;
+          }
+            return pessoa;
+        });   
+        console.log(pessoa);
+        setCredits(pessoa);
+      });
+
   }, []);
   return (
     <div className="topDet">
@@ -48,13 +74,14 @@ export default function TopDet() {
               {movieId.title} (
               {moment(movieId.release_date).locale("pt").format("YYYY")})
             </span>
-            <div>
-              <span></span>
+            <div className="detIdadeDataLancGenDur">
+              <span>{releaseDate.certification} Anos</span>
               <span> • </span>
               <span>
-                {moment(movieId.release_date)
+                {moment(releaseDate.release_date)
                   .locale("pt")
-                  .format("DD MMM YYYY")}
+                  .format("DD/MM/YYYY")}
+                (BR)
               </span>
               <span> • </span>
               <span>{genres.toString()}</span>
@@ -71,29 +98,37 @@ export default function TopDet() {
           <div className="avaliacaoUsuarios">
             <div style={{ width: 40, height: 40 }}>
               <CircularProgressbar
-                value={(100 * 7.8) / 10}
-                text={(100 * 7.8) / 10 + "%"}
+                value={(100 * movieId.vote_average) / 10}
+                text={(100 * movieId.vote_average) / 10 + "%"}
                 background
                 strokeWidth={10}
                 styles={buildStyles({
                   pathColor: "#14FF00",
                   textColor: "#14FF00",
                   trailColor: "transparent",
-                  textSize: "30px",
+                  textSize: "28px",
                   backgroundColor: "rgba(255,255,255, 0.1)",
                   pathTransitionDuration: 0.5,
                 })}
               />
             </div>
-            <span className="tituloAvaliacaoUsuarios"> Avaliação dos Usuarios</span>
+            <span className="detTituloAvaliacaoUsuarios">
+              Avaliação dos Usuarios
+            </span>
           </div>
-          <div>
-            <span>Sinopse</span>
-            <span>{movieId.overview}</span>
+          <div className="detSinopse">
+            <span className="detTituloSinopse">Sinopse</span>
+            <span className="detTextoSinopse">{movieId.overview}</span>
           </div>
-          <div>
-            <span>Sinopse</span>
-            <span>{movieId.overview}</span>
+          <div className="detContainerPessoaDepartGrupo">
+            {
+              credits.map((pessoa) => (
+              <div className="detPessoaDepartGrupo" >
+                <span className="detPessoaNome">{pessoa.name}</span>
+                <span className="detPessoaDepart">{pessoa.department}</span>
+              </div>
+              ))
+            }
           </div>
         </div>
       </div>
