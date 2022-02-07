@@ -24,7 +24,7 @@ export default function Trailer(props) {
         <iframe
           width="800"
           height="400"
-          src={`https://www.youtube.com/embed/`+trailer}
+          src={`https://www.youtube.com/embed/` + trailer}
           title="YouTube video player"
         ></iframe>
       </div>

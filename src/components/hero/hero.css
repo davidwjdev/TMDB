@@ -4,31 +4,31 @@
 .linkHero:visited,
 .linkHero:link,
 .linkHero:active {
-    color: inherit;
-    text-decoration: inherit; 
+  color: inherit;
+  text-decoration: inherit;
 }
-.icon{
-    width: 45px;
-    height: 16px;
+.icon {
+  width: 45px;
+  height: 16px;
 }
-.tituloSite{
-    letter-spacing: 5px;
-    font-size: 20px;
-    font-weight: 900;
+.tituloSite {
+  letter-spacing: 5px;
+  font-size: 20px;
+  font-weight: 900;
 }
-.hero{
-    background-color: #5C16C5;
-    height: 60px;
-    display: flex;
-    justify-content: center;
+.hero {
+  background-color: #5c16c5;
+  height: 60px;
+  display: flex;
+  justify-content: center;
 }
-.containerHero{
-    width: 800px;
-    display: flex;
-    padding: 10px 0;
-    justify-content: space-between;
-    align-items: center;
+.containerHero {
+  width: 800px;
+  display: flex;
+  padding: 10px 0;
+  justify-content: space-between;
+  align-items: center;
 }
-.botaoHome{
-    color: #FFFFFF;
+.botaoHome {
+  color: #ffffff;
 }

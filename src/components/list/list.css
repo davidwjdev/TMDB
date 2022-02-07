@@ -4,8 +4,8 @@
 .linkFilme:visited,
 .linkFilme:link,
 .linkFilme:active {
-    color: inherit;
-    text-decoration: inherit; 
+  color: inherit;
+  text-decoration: inherit;
 }
 .list {
   color: #000000;
@@ -38,4 +38,3 @@
 .paginacao {
   margin: 50px 0;
 }
-

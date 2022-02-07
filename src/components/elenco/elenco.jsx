@@ -22,19 +22,18 @@ export default function Elenco(props) {
       <div className="containerElenco">
         <span className="tituloElenco">Elenco</span>
         <div className="grupoElenco">
-        {elenco.map((pessoa) => (
-          <div className="pessoa" key={pessoa.cast_id}>
-            <img
-              className="fotoElenco"
-              src={`https://image.tmdb.org/t/p/w500` + pessoa.profile_path}
-              alt={pessoa.name}
-            />
-            <span className={"nomePessoa"}>{pessoa.name}</span>
-            <span className={"personagemPessoa"}>{pessoa.character}</span>
-          </div>
-        ))}
+          {elenco.map((pessoa) => (
+            <div className="pessoa" key={pessoa.cast_id}>
+              <img
+                className="fotoElenco"
+                src={`https://image.tmdb.org/t/p/w500` + pessoa.profile_path}
+                alt={pessoa.name}
+              />
+              <span className={"nomePessoa"}>{pessoa.name}</span>
+              <span className={"personagemPessoa"}>{pessoa.character}</span>
+            </div>
+          ))}
         </div>
-
       </div>
     </div>
   );

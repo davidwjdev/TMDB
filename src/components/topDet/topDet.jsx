@@ -37,30 +37,27 @@ export default function TopDet(props) {
       .get(
         `https://api.themoviedb.org/3/movie/${props.movieId}/credits?api_key=${apiKey}&language=pt-BR`
         // `https://api.themoviedb.org/3/movie/634649/credits?api_key=${apiKey}&language=pt-BR`
-
-        )
+      )
       .then((results) => {
         const result = results.data.crew;
         const pessoa = [];
         result.filter(function (crew) {
-          if(crew.department === "Directing"){
+          if (crew.department === "Directing") {
             pessoa.push({
               id: crew.id,
-              name:crew.name,
+              name: crew.name,
               department: crew.department,
             });
             return pessoa;
           }
-            return pessoa;
-        });   
+          return pessoa;
+        });
         setCredits(pessoa);
       });
-
   }, []);
   return (
     <div className="topDet">
       <div className="containerTopDet">
-
         <div className="detFilmeFoto">
           <img
             className="posterFilmeDet"
@@ -121,14 +118,12 @@ export default function TopDet(props) {
             <span className="detTextoSinopse">{movieId.overview}</span>
           </div>
           <div className="detContainerPessoaDepartGrupo">
-            {
-              credits.map((pessoa) => (
-              <div className="detPessoaDepartGrupo" key={pessoa.id} >
+            {credits.map((pessoa) => (
+              <div className="detPessoaDepartGrupo" key={pessoa.id}>
                 <span className="detPessoaNome">{pessoa.name}</span>
                 <span className="detPessoaDepart">{pessoa.department}</span>
               </div>
-              ))
-            }
+            ))}
           </div>
         </div>
       </div>

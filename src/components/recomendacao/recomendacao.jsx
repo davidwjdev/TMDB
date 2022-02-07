@@ -22,16 +22,16 @@ export default function Recomendacao(props) {
       <div className="containerRecomendacao">
         <span className="tituloRecomendacao">Recomendações</span>
         <div className="grupoRecomendacao">
-        {recomendacao.map((recomend) => (
-          <div className="filme" key={recomend.title}>
-            <img
-              className="fotoFilme"
-              src={`https://image.tmdb.org/t/p/w500` + recomend.poster_path}
-              alt={recomend.title}
-            />
-            <span className={"nomeFilme"}>{recomend.title}</span>
-          </div>
-        ))}
+          {recomendacao.map((recomend) => (
+            <div className="filme" key={recomend.title}>
+              <img
+                className="fotoFilme"
+                src={`https://image.tmdb.org/t/p/w500` + recomend.poster_path}
+                alt={recomend.title}
+              />
+              <span className={"nomeFilme"}>{recomend.title}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

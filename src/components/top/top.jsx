@@ -24,9 +24,11 @@ export default function Top() {
         </span>
         <div className="containerFiltros">
           <span>Filtre por:</span>
-          <div className="botaoFiltros" >
+          <div className="botaoFiltros">
             {genres.map((genre) => (
-              <button className="filtros" key={genre.id}>{genre.name}</button>
+              <button className="filtros" key={genre.id}>
+                {genre.name}
+              </button>
             ))}
           </div>
         </div>
