@@ -37,4 +37,13 @@
 }
 .paginacao {
   margin: 50px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 799px) {
+  .containerList {
+    width: 600px;
+  }
+  
 }

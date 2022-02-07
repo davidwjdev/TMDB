@@ -32,3 +32,9 @@
 .botaoHome {
   color: #ffffff;
 }
+@media (max-width: 799px) {
+  .containerHero {
+    width: 400px;
+  }
+  
+}

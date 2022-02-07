@@ -9,8 +9,8 @@
 }
 .containerTop {
   width: 800px;
-  height: 350px;
-  padding-top: 50px;
+  height: auto;
+  padding: 50px 0;
   text-align: center;
 }
 .containerFiltros {
@@ -30,4 +30,18 @@
   border-radius: 5px;
   border: #000000;
   margin: 5px;
+}
+@media (max-width: 799px) {
+  .titulo {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .containerTop {
+    text-align: left;
+    padding: 50px 10px;
+    width: 425px;
+  }
+  .botaoFiltros {
+    justify-content: left;
+  }
 }

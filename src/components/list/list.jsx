@@ -32,6 +32,9 @@ export default function List() {
   return (
     <div className="list">
       <div className="containerList">
+        <div className="paginacao">
+          <Pagination count={maxPages} page={page} onChange={handleChange} />
+        </div>
         {movies.map((movie) => (
           <div className="containerFilme" key={movie.id}>
             <Link to={`/detalhes/${movie.id}`} className="linkFilme">
