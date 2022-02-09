@@ -56,7 +56,7 @@ export default function Trailer(props) {
         .then(result => result.data.results)
         .then( items =>{
           if(mounted){
-            setTrailer(items)
+            setTrailer(items[0].key)
           }
         })
         return () => mounted = false;
