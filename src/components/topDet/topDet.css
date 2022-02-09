@@ -2,6 +2,7 @@
   background-color: #2d0c5e;
   display: flex;
   justify-content: center;
+  min-height: 400px;
 }
 .containerTopDet {
   width: 800px;
@@ -49,7 +50,7 @@
 .detTextoSinopse {
   font-size: 16px;
 }
-.detContainerPessoaDepartGrupo {
+/* .detContainerPessoaDepartGrupo {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding-bottom: 30px;
@@ -62,7 +63,7 @@
 }
 .detPessoaNome {
   font-weight: bold;
-}
+} */
 .botaoVoltar {
   position: fixed;
   bottom: 5%;
@@ -96,9 +97,9 @@
   .separador{
     display: none;
   }
-  .detContainerPessoaDepartGrupo {
+  /* .detContainerPessoaDepartGrupo {
     grid-template-columns: 1fr 1fr;
-  }
+  } */
 
   .botaoVoltar {
     position: fixed;

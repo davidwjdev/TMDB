@@ -14,15 +14,58 @@ export default function List() {
   const [page, setPage] = useState(1);
   const maxPages = 100;
 
+  // axios
+  //   .get(
+  //     `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=${page}`
+  //   )
+  //   .then((results) => {
+  //     const result = results.data.results;
+  //     setMovies(result);
+  //   });
+
+  // useEffect(() => {
+  //   const CancelToken = axios.CancelToken;
+  //   const source = CancelToken.source();
+
+  //   const loadDataPopular = () => {
+  //      try {
+  //     axios
+  //       .get(
+  //         `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=${page}`
+  //          ,{ cancelToken: source.token }
+  //       )
+  //       .then((result) => {
+  //         setMovies(result.data.results);
+  //       });
+  //      } catch (error) {
+  //        if (axios.isCancel(error)) {
+  //          console.log("cancelled");
+  //        } else {
+  //          throw error;
+  //        }
+  //      }
+  //   };
+
+  //   loadDataPopular();
+  //   return () => {
+  //     source.cancel();
+  //   };
+  // }, [page]);
+
   useEffect(() => {
+    let mounted = true;
+
     axios
       .get(
         `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=${page}`
       )
-      .then((results) => {
-        const result = results.data.results;
-        setMovies(result);
+      .then((result) => result.data.results)
+      .then((items) => {
+        if (mounted) {
+          setMovies(items);
+        }
       });
+    return () => (mounted = false);
   }, [page]);
 
   const handleChange = (event, value) => {

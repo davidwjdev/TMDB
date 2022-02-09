@@ -6,15 +6,59 @@ export default function Elenco(props) {
   const [elenco, setElenco] = useState([]);
   const apiKey = "8cfb3f7b5d20b29a8bb4602b47a77292";
 
+  // axios
+  // .get(
+  //   `https://api.themoviedb.org/3/movie/${props.movieId}/credits?api_key=${apiKey}&language=pt-BR`
+  // )
+  // .then((results) => {
+  //   const result = results.data.cast;
+  //   setElenco(result);
+  // });
+
+  // useEffect(() => {
+  //   const CancelToken = axios.CancelToken;
+  //   const source = CancelToken.source();
+
+  //   const loadDataCredits = () => {
+  //      try {
+  //     axios
+  //       .get(
+  //           `https://api.themoviedb.org/3/movie/${props.movieId}/credits?api_key=${apiKey}&language=pt-BR`
+  //         ,{ cancelToken: source.token }
+  //        )
+
+  //       .then((result) => {
+  //         setElenco(result.data.cast);
+  //       });
+  //      } catch (error) {
+  //        if (axios.isCancel(error)) {
+  //          console.log("cancelled");
+  //        } else {
+  //          throw error;
+  //        }
+  //      }
+  //   };
+
+  //   loadDataCredits();
+  //   return () => {
+  //     source.cancel();
+  //   };
+  // },[]);
+
   useEffect(() => {
+    let mounted = true;
+
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${props.movieId}/credits?api_key=${apiKey}&language=pt-BR`
       )
-      .then((results) => {
-        const result = results.data.cast;
-        setElenco(result);
+      .then(result => result.data.cast)
+      .then(items => {
+        if (mounted) {
+          setElenco(items);
+        }
       });
+    return () => (mounted = false);
   }, []);
 
   return (

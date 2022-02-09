@@ -14,12 +14,20 @@
   font-weight: bold;
   font-size: 20px;
 }
+iframe{
+  width: 800px;
+  height:400px;
+}
 @media (max-width: 799px) {
   .containerTrailer {
-    width: 425px;
+    width: 420px;
     display: flex;
   }
   .tituloTrailer {
     padding: 10px 20px;
+  }
+  iframe{
+    width: 420px;
+    height:300px;
   }
 }

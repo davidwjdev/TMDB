@@ -6,16 +6,66 @@ export default function Top() {
   const [genres, setGenres] = useState([]);
   const apiKey = "8cfb3f7b5d20b29a8bb4602b47a77292";
 
+  // axios
+  //   .get(
+  //     `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=pt-BR`
+  //   )
+  //   .then((results) => {
+  //     const result = results.data.genres;
+  //     setGenres(result);
+  //   });
+  
+  // useEffect(() => {
+  //   const CancelToken = axios.CancelToken;
+  //   const source = CancelToken.source();
+
+  //   const loadDataList = () => {
+  //      try {
+  //     axios
+  //       .get(
+  //         `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=pt-BR`
+  //          , { cancelToken: source.token }
+  //         )
+  //       .then((result) => {
+  //         setGenres(result.data.genres);
+  //       });
+  //      } catch (error) {
+  //        if (axios.isCancel(error)) {
+  //          console.log("cancelled");
+  //        } else {
+  //          throw error;
+  //        }
+  //      }
+  //   };
+
+  //   loadDataList();
+  //   return () => {
+  //     //console.log("cleaning");
+  //     source.cancel();
+  //   };
+
+
+  // }, []);
+
+
+
+
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=pt-BR`
-      )
-      .then((results) => {
-        const result = results.data.genres;
-        setGenres(result);
-      });
+    let mounted = true;
+
+      axios
+        .get(
+          `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=pt-BR`
+        )
+        .then(result => result.data.genres)
+        .then(items => {
+          if(mounted){
+            setGenres(items)
+          }
+        })
+    return () => mounted = false;
   }, []);
+
   return (
     <div className="top">
       <div className="containerTop">
