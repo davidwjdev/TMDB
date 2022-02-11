@@ -10,47 +10,11 @@ import "./list.css";
 
 export default function List() {
   const [movies, setMovies] = useState([]);
+  // const [filters, setFilters] = useState([]);
+
   const apiKey = "8cfb3f7b5d20b29a8bb4602b47a77292";
   const [page, setPage] = useState(1);
   const maxPages = 100;
-
-  // axios
-  //   .get(
-  //     `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=${page}`
-  //   )
-  //   .then((results) => {
-  //     const result = results.data.results;
-  //     setMovies(result);
-  //   });
-
-  // useEffect(() => {
-  //   const CancelToken = axios.CancelToken;
-  //   const source = CancelToken.source();
-
-  //   const loadDataPopular = () => {
-  //      try {
-  //     axios
-  //       .get(
-  //         `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=${page}`
-  //          ,{ cancelToken: source.token }
-  //       )
-  //       .then((result) => {
-  //         setMovies(result.data.results);
-  //       });
-  //      } catch (error) {
-  //        if (axios.isCancel(error)) {
-  //          console.log("cancelled");
-  //        } else {
-  //          throw error;
-  //        }
-  //      }
-  //   };
-
-  //   loadDataPopular();
-  //   return () => {
-  //     source.cancel();
-  //   };
-  // }, [page]);
 
   useEffect(() => {
     let mounted = true;
@@ -61,10 +25,48 @@ export default function List() {
       )
       .then((result) => result.data.results)
       .then((items) => {
-        if (mounted) {
+        if(mounted){
           setMovies(items);
         }
+
+        // let filterLS = JSON.parse(localStorage.getItem("filtersActivated"));
+        // console.log(filterLS);
+        // if (mounted) {
+        //   setFilters(items);
+
+        //   let resFilter = [];
+
+        //   let moviesFilter;
+
+        //   if (filterLS !== null || filterLS !== undefined || filterLS !== []) {
+        //     Object.keys(filterLS).forEach(function (keyF) {
+        //       // console.log(filterLS[keyF]);
+        //       Object.keys(filters).forEach(function (keyM) {
+        //         // console.log(movies[keyM]);
+        //         Object.keys(filters[keyM].genre_ids).forEach(function (keyG) {
+        //           filters[keyM].genre_ids.find((item) => {
+        //             if (item === filterLS[keyF]) {
+        //               moviesFilter = filters[keyM];
+        //               resFilter.push(moviesFilter);
+        //               return resFilter;
+        //             }
+        //           });
+        //           //console.log(moviesFilter);
+        //         });
+        //       });
+        //     });
+
+        //     // console.log(moviesFilter);
+        //     setMovies(resFilter);
+        //     console.log(resFilter);
+        //     console.log(movies);
+        //   } else {
+        //     setMovies(items);
+        //     console.log(movies);
+        //   }
+        // }
       });
+
     return () => (mounted = false);
   }, [page]);
 

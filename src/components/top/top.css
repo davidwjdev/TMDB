@@ -15,6 +15,7 @@
 }
 .containerFiltros {
   padding-top: 50px;
+  font-weight: bold;
 }
 .botaoFiltros {
   padding-top: 20px;
@@ -31,6 +32,10 @@
   border: #000000;
   margin: 5px;
 }
+.containerBotao {
+  padding: 5px;
+}
+
 @media (max-width: 799px) {
   .titulo {
     font-size: 30px;

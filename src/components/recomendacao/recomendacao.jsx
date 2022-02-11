@@ -7,51 +7,14 @@ import { Link } from "react-router-dom";
 export default function Recomendacao(props) {
   const [recomendacao, setRecomendacao] = useState([]);
   const apiKey = "8cfb3f7b5d20b29a8bb4602b47a77292";
-
-  // axios
-  // .get(
-  //   `https://api.themoviedb.org/3/movie/${props.movieId}/recommendations?api_key=${apiKey}&language=pt-BR`
-  // )
-  // .then((results) => {
-  //   const result = results.data.results;
-  //   setRecomendacao(result);
-  // });
-
-  // useEffect(() => {
-  //   const CancelToken = axios.CancelToken;
-  //   const source = CancelToken.source();
-
-  //   const loadDataRecomend = () => {
-  //      try {
-  //     axios
-  //       .get(
-  //         `https://api.themoviedb.org/3/movie/${props.movieId}/recommendations?api_key=${apiKey}&language=pt-BR`
-  //          , { cancelToken: source.token }
-  //         )
-  //       .then((result) => {
-  //         setRecomendacao(result.data.results);
-  //       });
-  //      } catch (error) {
-  //        if (axios.isCancel(error)) {
-  //          console.log("cancelled");
-  //        } else {
-  //          throw error;
-  //        }
-  //      }
-  //   }
-
-  //   loadDataRecomend();
-  //   return () => {
-  //     source.cancel();
-  //   };
-  // },[]);
+  let movieId = props.movieId;
 
   useEffect(() => {
     let mounted = true;
 
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${props.movieId}/recommendations?api_key=${apiKey}&language=pt-BR`
+        `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=pt-BR`
       )
       .then((result) => result.data.results)
       .then((items) => {
@@ -72,7 +35,7 @@ export default function Recomendacao(props) {
               <Link
                 to={`/detalhes/${recomend.id}`}
                 className="linkFilme"
-                onClick={() => window.location.reload(false)}
+                onClick={() => (movieId = recomend.id)}
               >
                 <img
                   className="fotoFilme"
@@ -80,11 +43,10 @@ export default function Recomendacao(props) {
                   alt={recomend.title}
                 />
               </Link>
-              {recomend.id}
               <Link
                 to={`/detalhes/${recomend.id}`}
                 className="linkFilme"
-                onClick={() => window.location.reload(false)}
+                onClick={() => (movieId = recomend.id)}
               >
                 <span className={"nomeFilme"}>{recomend.title}</span>
               </Link>

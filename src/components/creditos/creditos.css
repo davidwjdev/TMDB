@@ -1,23 +1,20 @@
+.detContainerPessoaDepartGrupo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: 30px;
+}
+.detPessoaDepartGrupo {
+  display: grid;
+  grid-auto-flow: row;
+  font-size: 12px;
+  padding: 10px 10px 0 0;
+}
+.detPessoaNome {
+  font-weight: bold;
+}
+
+@media (max-width: 799px) {
   .detContainerPessoaDepartGrupo {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding-bottom: 30px;
+    grid-template-columns: 1fr 1fr;
   }
-  .detPessoaDepartGrupo {
-    display: grid;
-    grid-auto-flow: row;
-    font-size: 12px;
-    padding: 10px 10px 0 0;
-  }
-  .detPessoaNome {
-    font-weight: bold;
-  }
-
-  @media (max-width: 799px) {
-
-    .detContainerPessoaDepartGrupo {
-      grid-template-columns: 1fr 1fr;
-    }
-
-  }
-  
+}

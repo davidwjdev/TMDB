@@ -16,162 +16,25 @@ export default function TopDet(props) {
   const [movieId, setMovieId] = useState([]);
   const apiKey = "8cfb3f7b5d20b29a8bb4602b47a77292";
   const [genres, setGenres] = useState([]);
-  // const [releaseDate, setReleaseDate] = useState([]);
-  // const [credits, setCredits] = useState([]);
 
-  // axios
-  //   .get(
-  //     `https://api.themoviedb.org/3/movie/${props.movieId}?api_key=${apiKey}&language=pt-BR`
-  //   )
-  //   .then((results) => {
-  //     const result = results.data;
-  //     setMovieId(result);
-  //     setGenres(result.genres.map((genre) => genre.name));
-  //   });
-  // axios
-  //   .get(
-  //     `https://api.themoviedb.org/3/movie/${props.movieId}/release_dates?api_key=${apiKey}&language=pt-BR`
-  //   )
-  //   .then((results) => {
-  //     const result = results.data.results;
-  //     const res = result.filter(function (iso) {
-  //       return iso.iso_3166_1 === "BR";
-  //     });
-  //     setReleaseDate(res[0].release_dates[0]);
-  //   });
-  // axios
-  //   .get(
-  //     `https://api.themoviedb.org/3/movie/${props.movieId}/credits?api_key=${apiKey}&language=pt-BR`
-  //   )
-  //   .then((results) => {
-  //     const result = results.data.crew;
-  //     const pessoa = [];
-  //     result.filter(function (crew) {
-  //       if (crew.department === "Directing") {
-  //         pessoa.push({
-  //           id: crew.id,
-  //           name: crew.name,
-  //           department: crew.department,
-  //         });
-  //         return pessoa;
-  //       }
-  //       return pessoa;
-  //     });
-  //     setCredits(pessoa);
-  //   });
+  useEffect(() => {
+    let mounted = true;
 
-  // useEffect(() => {
-  //   const CancelToken = axios.CancelToken;
-  //   const source = CancelToken.source();
-
-  //   const loadDataMovies = () => {
-  //      try {
-  //     axios
-  //       .get(
-  //         `https://api.themoviedb.org/3/movie/${props.movieId}?api_key=${apiKey}&language=pt-BR`
-  //         , { cancelToken: source.token }
-  //       )
-  //       .then((result) => {
-  //         setMovieId(result.data);
-  //         const results = result.data.genres;
-  //         const data = results.map((genre) => genre.name)
-  //         setGenres(data);
-  //       });
-  //      } catch (error) {
-  //        if (axios.isCancel(error)) {
-  //          console.log("cancelled");
-  //        } else {
-  //          throw error;
-  //        }
-  //      }
-  //   };
-
-
-    useEffect(() => {
-      let mounted = true;
-
-        axios
-          .get(
-            `https://api.themoviedb.org/3/movie/${props.movieId}?api_key=${apiKey}&language=pt-BR`
-          )
-          .then(result => result.data)
-          .then(items => {
-            if(mounted){
-              setMovieId(items);
-              const results = items.genres;
-              const dataGenres = results.map((genre) => genre.name);
-              setGenres(dataGenres);
-            }
-          })
-          return () => mounted = false;
-        }, []);
-      
-
-    // const loadDataReleseDates = () => {
-    //   try {
-    //     axios
-    //       .get(
-    //         `https://api.themoviedb.org/3/movie/${props.movieId}/release_dates?api_key=${apiKey}&language=pt-BR`
-    //        , { cancelToken: source.token }
-    //       )
-    //       .then((result) => {
-    //         const results = result.data.results;
-    //         const res = results.filter(function (iso) {
-    //           return iso.iso_3166_1 === "BR";
-    //         });
-    //         setReleaseDate(res[0].release_dates[0]);
-    //       });
-    //   } catch (error) {
-    //     if (axios.isCancel(error)) {
-    //       console.log("cancelled");
-    //     } else {
-    //       throw error;
-    //     }
-    //   }
-    // };
-
-      // const loadDataCredits = () => {
-      //   try {
-      //     axios
-      //       .get(
-      //         `https://api.themoviedb.org/3/movie/${props.movieId}/credits?api_key=${apiKey}&language=pt-BR`
-      //         , { cancelToken: source.token }
-      //       )
-      //       .then((result) => {
-      //         const results = result.data.crew;
-      //         const pessoa = [];
-      //         results.filter(function (crew) {
-      //           if (crew.department === "Directing") {
-      //             pessoa.push({
-      //               id: crew.id,
-      //               name: crew.name,
-      //               department: crew.department,
-      //             });
-      //             return pessoa;
-      //           }
-      //           return pessoa;
-      //         });
-      //         setCredits(pessoa);
-      //         console.log(pessoa);
-      //       });
-      //   } catch (error) {
-      //     if (axios.isCancel(error)) {
-      //       console.log("cancelled");
-      //     } else {
-      //       throw error;
-      //     }
-      //   }
-      // }; 
-
-    
-
-  //   loadDataMovies();
-  //   // loadDataReleseDates();
-  //   // loadDataCredits();
-  //   return () => {
-  //     source.cancel();
-  //   };
-  // });
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${props.movieId}?api_key=${apiKey}&language=pt-BR`
+      )
+      .then((result) => result.data)
+      .then((items) => {
+        if (mounted) {
+          setMovieId(items);
+          const results = items.genres;
+          const dataGenres = results.map((genre) => genre.name);
+          setGenres(dataGenres);
+        }
+      });
+    return () => (mounted = false);
+  }, []);
 
   return (
     <div className="topDet">

@@ -1,9 +1,8 @@
 import React, { Fragment, useLayoutEffect } from "react";
-import List from "../../components/list/list";
 import Top from "../../components/top/top";
 
 import { useLocation } from "react-router-dom";
-
+import List from "../../components/list/list";
 
 export default function ListMovies() {
   const location = useLocation();
