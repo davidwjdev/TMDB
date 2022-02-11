@@ -1,15 +1,23 @@
 # TMDB
+Projeto de uma pagina de filmes utilizando React e API do TMDB.
+<br/>
+<br/>
 
-Projeto de pagina de filmes com acesso aos detalhes de cada filmes.
 
 ## Executar o projeto localmente:
+
 Clone o diretorio do projeto utilizando o comando abaixo no terminal:
 ### git clone https://github.com/davidwjdev/TMDB.git
 
 Em seguida entre na pasta do projeto com o comando:
 ### cd TMDB 
 
-## Executar o projeto localmente
+Após entrar no diretorio utilize o comando abaixo para baixar as dependencias utilizadas pelo projeto:
+### npm install
+<br/>
+
+
+## Executar o projeto localmente:
 
 Executar no terminal no diretorio do projeto o comando:
 ### npm start
