@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/TMDB/static/css/main.27c709e5.css",
+    "main.js": "/TMDB/static/js/main.1f7f413c.js",
+    "index.html": "/TMDB/index.html",
+    "static/media/icon.svg": "/TMDB/static/media/icon.2de72693223cf65257a903937aa63bbb.svg",
+    "main.27c709e5.css.map": "/TMDB/static/css/main.27c709e5.css.map",
+    "main.1f7f413c.js.map": "/TMDB/static/js/main.1f7f413c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27c709e5.css",
+    "static/js/main.1f7f413c.js"
+  ]
+}
